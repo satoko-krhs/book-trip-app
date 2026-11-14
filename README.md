@@ -2,6 +2,27 @@
 
 本の世界を、旅しよう。React + TypeScript + Viteによる、ブラウザだけで動く研修用MVPです。バックエンド、認証、予約、有料地図API、APIキーは使用しません。
 
+## Windows ARM64でNode.js・npmを使わず表示する
+
+ビルド済み配布版は [GitHub Releases](https://github.com/satoko-krhs/book-trip-app/releases) から取得してください。**BookTrip-Windows-Built-v0.1.0.zip** をダウンロードして「すべて展開」し、**BookTrip.html** をMicrosoft Edgeで開きます。ローカルサーバー、npm install、npm run devは不要です。
+
+画像・スタイル・React実行コード・初期データは単体HTMLに含まれています。詳細は [Windows配布版README](README-Windows.md) を参照してください。管理画面は単体HTML内のハッシュ経路を使い、通常のWeb版のURLは従来どおりです。
+
+Windows ARM64のEdge実機では未確認です。クラウドの管理対象Chromiumではfile://の表示がポリシーでブロックされたため、回避せず、同じ単体HTMLのHTTP配信で機能を検証しています。組織がHTML・JavaScript自体を禁止している場合は、管理者へ承認された配信方法を相談してください。セキュリティポリシーの無効化や回避は行いません。
+
+クラウド側での配布版の再生成（Windowsユーザーは実行不要）:
+
+```sh
+npm install
+npm run build
+npm run build:standalone
+npm test
+npm run test:standalone
+python scripts/package-windows.py
+```
+
+標準Vite出力は `dist/`、単体HTML・配布ZIPは `work/` に生成します。どちらもGitでは除外し、ZIPのみReleasesの添付にします。配布ZIPにはソース・node_modules・機密情報を含めません。
+
 ## 起動
 
 Node.js 20.19+ または 22.12+（検証環境: Node.js 24）を使用します。
@@ -19,7 +40,7 @@ npm run dev -- --host 0.0.0.0 --port 5174 --strictPort
 
 **クラウド環境とWindows PCのlocalhostは別のコンピューターです。** 上記のURLはサーバーを実行したコンピューターから開きます。クラウド用ポート転送機能を利用する場合は5174を指定してください。このセッションにはポート転送URLを発行するツールがなく、利用者のPC向けURLは確認できていません。Codexの右パネルで「+ → Desktop」を開ける場合は、Desktop内のChromeから `http://localhost:5174/` を開いてください。Desktopを手動で開く経路そのものは今回の自動テストでは検証していません。
 
-Windows PCで試す場合は、成果物のZIPを解凍してターミナルで `book-trip-app` フォルダーへ移動し、`npm install` と `npm run dev -- --host 0.0.0.0 --port 5174 --strictPort` を実行してください。そのPCのブラウザで `http://localhost:5174/` を開けます。HTMLファイルのダブルクリックでは動きません。
+Windows PCで試す場合は、成果物のZIPを解凍してターミナルで `book-trip-app` フォルダーへ移動し、`npm install` と `npm run dev -- --host 0.0.0.0 --port 5174 --strictPort` を実行してください。そのPCのブラウザで `http://localhost:5174/` を開けます。ソースのindex.htmlや通常のdist/index.htmlのダブルクリックでは動きません。直接開く場合は上記の配布版BookTrip.htmlを使用してください。
 
 ## 実装済み
 
