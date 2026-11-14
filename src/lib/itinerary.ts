@@ -3,7 +3,7 @@ import allSpots from '../data/spots.json';
 import type {Book,Day,Settings,Spot,TravelTime} from '../types';
 import {placeEndpoint,spotEndpoint} from './maps';
 import {parseTime} from './time';
-import {lookupMaster} from './master';
+import {matchMaster} from './master';
 export function day1FinalSpot(book:Book):Spot {
  const last=templates.two[0].at(-1)!;return allSpots.find(s=>s.id===book.spotIds[last])! as Spot;
 }
@@ -17,7 +17,7 @@ export function createDays(book:Book,settings:Settings,master:TravelTime[]):Day[
  const endsAtLastSpot=settings.duration==='two'&&index===0&&!settings.day1End.trim();
  const destination=endsAtLastSpot?spotEndpoint(spots.at(-1)!):placeEndpoint(settings.duration==='two'&&index===0?settings.day1End:settings.destination);
  const points=[origin,...spots.map(spotEndpoint),...(endsAtLastSpot?[]:[destination])];
- return {index,origin,destination,endsAtLastSpot,startMinutes:parseTime(index===0?settings.startTime:settings.day2Time)!,spots,stays:spots.map(s=>s.defaultStayMinutes),legs:points.slice(0,-1).map((from,i)=>{const to=points[i+1],minutes=lookupMaster(master,from,to,settings.mode);return {id:`${index}-${i}`,from,to,mode:settings.mode,minutes,source:minutes===null?'unknown':'master'};})};
+ return {index,origin,destination,endsAtLastSpot,startMinutes:parseTime(index===0?settings.startTime:settings.day2Time)!,spots,stays:spots.map(s=>s.defaultStayMinutes),legs:points.slice(0,-1).map((from,i)=>{const to=points[i+1],match=matchMaster(master,from,to,settings.mode,book.id);return {id:`${index}-${i}`,bookId:book.id,from,to,mode:settings.mode,minutes:match.minutes,source:match.minutes===null?'unknown':'master',masterReason:match.reason};})};
  });
 }
 export function scheduleDay(day:Day){

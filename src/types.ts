@@ -7,5 +7,5 @@ export type Spot = {id:string; name:string; address:string; placeId?:string; des
 export type TravelTime = {id:string; bookId?:string; fromSpotId:string; toSpotId:string; fromPlaceName?:string; toPlaceName?:string; travelMode:Mode; durationMinutes:number|null; checkedAt:string|null; sourceUrl:string|null; verificationStatus:Verification};
 export type Settings = {bookId:string; origin:string; destination:string; duration:Duration; startTime:string; travelDate:string; day1End:string; day2Start:string; day2Time:string; mode:Mode};
 export type Endpoint = {id?:string; name:string; query:string};
-export type Leg = {id:string; from:Endpoint; to:Endpoint; mode:Mode; minutes:number|null; source:'master'|'manual'|'unknown'};
+export type Leg = {id:string; bookId?:string; masterReason?:string; from:Endpoint; to:Endpoint; mode:Mode; minutes:number|null; source:'master'|'manual'|'unknown'};
 export type Day = {index:number; origin:Endpoint; destination:Endpoint; startMinutes:number; spots:Spot[]; stays:number[]; legs:Leg[]; endsAtLastSpot:boolean};

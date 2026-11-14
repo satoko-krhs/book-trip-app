@@ -12,7 +12,9 @@
     "build:standalone": "node scripts/build-standalone.mjs",
     "test:standalone": "node tests/standalone.mjs",
     "test:routes": "node tests/routes.mjs && node tests/routes.mjs --standalone",
-    "test:mvp": "node tests/mvp-updates.mjs && node tests/mvp-updates.mjs --standalone"
+    "test:mvp": "node tests/mvp-updates.mjs && node tests/mvp-updates.mjs --standalone",
+    "typecheck": "tsc --noEmit",
+    "test:integration": "node tests/integration-fixes.mjs && node tests/integration-fixes.mjs --standalone"
   },
   "dependencies": {
     "react": "^19.1.0",
