@@ -10,7 +10,8 @@
     "test": "tsx --test src/lib/*.test.ts",
     "test:e2e": "node tests/browser.mjs",
     "build:standalone": "node scripts/build-standalone.mjs",
-    "test:standalone": "node tests/standalone.mjs"
+    "test:standalone": "node tests/standalone.mjs",
+    "test:routes": "node tests/routes.mjs && node tests/routes.mjs --standalone"
   },
   "dependencies": {
     "react": "^19.1.0",

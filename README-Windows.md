@@ -4,7 +4,7 @@ Node.js・npm・Rollupのインストールや実行は不要です。クラウ�
 
 ## Windowsで開く
 
-1. https://github.com/satoko-krhs/book-trip-app/releases で **BookTrip-Windows-Built-v0.1.0.zip** をダウンロードします。「Source code」のZIPではありません。
+1. https://github.com/satoko-krhs/book-trip-app/releases で **BookTrip-Windows-Built-v0.1.1.zip** をダウンロードします。「Source code」のZIPではありません。
 2. ダウンロードしたZIPを右クリックして「すべて展開」を選びます。
 3. 展開先の **BookTrip.html** を右クリックし、「プログラムから開く」→「Microsoft Edge」を選びます。通常はダブルクリックでも開けます。
 4. 「本の世界を、旅しよう。」と3作品のカードが表示されたら、作品と出発地を選んで旅程を作成します。ターミナルを開く必要はありません。

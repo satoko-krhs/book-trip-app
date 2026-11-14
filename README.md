@@ -4,7 +4,7 @@
 
 ## Windows ARM64でNode.js・npmを使わず表示する
 
-ビルド済み配布版は [GitHub Releases](https://github.com/satoko-krhs/book-trip-app/releases) から取得してください。**BookTrip-Windows-Built-v0.1.0.zip** をダウンロードして「すべて展開」し、**BookTrip.html** をMicrosoft Edgeで開きます。ローカルサーバー、npm install、npm run devは不要です。
+ビルド済み配布版は [GitHub Releases](https://github.com/satoko-krhs/book-trip-app/releases) から取得してください。**BookTrip-Windows-Built-v0.1.1.zip** をダウンロードして「すべて展開」し、**BookTrip.html** をMicrosoft Edgeで開きます。ローカルサーバー、npm install、npm run devは不要です。
 
 画像・スタイル・React実行コード・初期データは単体HTMLに含まれています。詳細は [Windows配布版README](README-Windows.md) を参照してください。管理画面は単体HTML内のハッシュ経路を使い、通常のWeb版のURLは従来どおりです。
 
@@ -18,6 +18,7 @@ npm run build
 npm run build:standalone
 npm test
 npm run test:standalone
+npm run test:routes
 python scripts/package-windows.py
 ```
 
@@ -50,7 +51,7 @@ Windows PCで試す場合は、成果物のZIPを解凍してターミナルで 
 - 2日間のDay 1最終目的地とDay 2出発地はそれぞれ入力。未入力から宿泊先を推定しません。
 - 15分単位の滞在時間編集、1分単位の移動時間編集、到着・出発・帰着予定の即時再計算。
 - 移動時間 `null` と0分を区別。未入力以降の予定時刻は `--:--`、合計は未確定。翌日・2日後の時刻表示。
-- 地点検索と経路確認にGoogle Maps公式Maps URLsを使用。往復経路、日別経路、最大3経由地ずつの分割で訪問順を維持。
+- 地点検索と経路確認にGoogle Maps公式Maps URLsを使用。往復経路、日別経路、端末の経由地点数制限に応じた分割で訪問順を維持。
 - 管理画面で区間追加、地点/交通手段/時間/確認日/状態/出典の編集、経路を開く、ブラウザへの登録、JSONコピー・ダウンロード。
 - 確認済みマスタだけを、方向・交通手段・地点IDまたは自由入力名をキーに旅程へ適用。
 - PC/スマートフォン対応、明示的なエラー表示。
@@ -95,7 +96,7 @@ Windows PCで試す場合は、成果物のZIPを解凍してターミナルで 
 
 ### Google Maps
 
-施設名＋住所を使用し、訪問順をそのままリンクにします。モバイル互換性のため経由地を最大3件に分割し、分割区間の境界地点を共有します。滞在時間、手入力の移動時間、出発時刻はGoogle Mapsへ送信しません。Google Maps側の表示名や最終的な経路・所要時間はBookTripでは制御しません。
+施設名＋住所を使用し、訪問順をそのままリンクにします。PCは経由地最大9件、モバイルブラウザまたは画面幅700px以下では最大3件として扱い、1リンクに収まれば1ボタン、超過時は分割します。分割時は「前半：松山駅 → 松山城」「後半：松山城 → 松山駅」のように実際の始点・終点を表示し、境界地点を共有します。URLの長さも考慮します。画面幅を切り替えるとリンクも再生成します。滞在時間、手入力の移動時間、出発時刻はGoogle Mapsへ送信しません。Google Maps側の表示名や最終的な経路・所要時間はBookTripでは制御しません。
 
 写真はWikimedia Commonsから取得した地域のイメージ写真です。写真の作者、元ファイル、ライセンスは画面下部と `public/images/credits.json` に記載しています。カード表示に合わせてトリミングと彩度調整をしています。写真の出典は作品との関連の証拠ではありません。
 
@@ -108,6 +109,7 @@ npm test
 npm run test:e2e
 ```
 
+- `npm run test:routes`: Web版・単体HTML版の両方で、PC/モバイル × 半日/1日/2日の計12ケースを操作し、ボタン数・施設名・接続地点・画面幅変更を確認します。
 - `npm test`: 時間計算、未確定の伝播、0分、深夜越え、全作品の固定順、2日間、マスタの方向と交通手段、Google Maps経路分割。
 - `npm run test:e2e`: Playwrightを使い、実際のChromiumでフォーム検証、3作品の旅程生成、滞在/移動編集、半日/2日、宿泊先、マスタ登録・適用、直接URL/更新、JSONコピー・ダウンロード、390pxのスマートフォン表示を操作。
 - システムChromiumが `/usr/bin/chromium` にある場合は利用します。他の環境は `npx playwright install chromium`、または環境変数 `CHROMIUM_PATH` に実行ファイルのパスを指定してください。テストURLの変更は `BOOKTRIP_TEST_URL` を使用します。
@@ -116,3 +118,5 @@ npm run test:e2e
 ## 今後の改善
 
 作品との関係を文献で調査して出典を登録すること、移動時間の実地確認、営業時間や休憩の扱い、ブラウザ以外へのデータ共有、アクセシビリティの詳細検証。これらは今回のMVPには含めていません。
+
+Google Maps URLsの仕様: https://developers.google.com/maps/documentation/urls/guide#directions-action

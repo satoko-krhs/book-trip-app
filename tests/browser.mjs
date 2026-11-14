@@ -16,7 +16,7 @@ await page.getByRole('button',{name:'旅程を作成する'}).click();await page
 await page.locator('.book-card').first().click();assert.equal(await page.locator('.book-card').first().getAttribute('aria-pressed'),'true');
 await page.getByLabel('出発地 必須').fill('松山駅');assert.equal(await page.getByLabel(/帰着地 必須/).inputValue(),'松山駅');
 await page.getByRole('button',{name:'旅程を作成する'}).click();await page.getByRole('heading',{name:'『坊っちゃん』を巡る旅'}).waitFor();assert.equal(await page.locator('.spot-card').count(),4);assert.equal(await page.locator('.travel-leg').count(),5);assert.match(await page.locator('.summary').innerText(),/未確定/);
-const routeLinks=page.locator('.route-panel a');assert.equal(await routeLinks.count(),2);const firstRoute=new URL(await routeLinks.first().getAttribute('href'));assert.equal(firstRoute.searchParams.get('origin'),'松山駅');assert.equal(firstRoute.searchParams.get('waypoints').split('|').length,3);check('one-day generation, round-trip route split, unknown timing');
+const routeLinks=page.locator('.route-panel a');assert.equal(await routeLinks.count(),1);const firstRoute=new URL(await routeLinks.first().getAttribute('href'));assert.equal(firstRoute.searchParams.get('origin'),'松山駅');assert.equal(firstRoute.searchParams.get('waypoints').split('|').length,4);check('one-day generation, single desktop round-trip route, unknown timing');
 await page.locator('.minutes-label input').nth(0).fill('30');assert.equal(await page.locator('.spot-card').first().locator('.times>span').first().innerText(),'到着予定\n08:30');
 for(const inp of await page.locator('.minutes-label input').all())await inp.fill('10');
 assert.match(await page.locator('.summary').innerText(),/5時間5分/);assert.match(await page.locator('.summary').innerText(),/13:05/);
