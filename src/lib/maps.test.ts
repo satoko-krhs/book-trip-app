@@ -4,7 +4,7 @@ import books from '../data/books.json';
 import {createDays} from './itinerary';
 import {placeEndpoint,routeLinks,routeLabel,spotEndpoint,waypointLimit} from './maps';
 import type {Duration,Mode,Settings} from '../types';
-const settings:Settings={bookId:'botchan',origin:'松山駅',destination:'松山駅',duration:'one',startTime:'08:00',day1End:'宿泊先',day2Start:'宿泊先',day2Time:'09:00',mode:'transit'};
+const settings:Settings={bookId:'botchan',origin:'松山駅',destination:'松山駅',duration:'one',startTime:'08:00',travelDate:'2026-11-14',day1End:'宿泊先',day2Start:'宿泊先',day2Time:'09:00',mode:'transit'};
 function decoded(url:string){const p=new URL(url).searchParams;return [p.get('origin')!,...(p.get('waypoints')?.split('|')??[]),p.get('destination')!];}
 test('all books and durations preserve every route edge for desktop/mobile and every mode',()=>{
  for(const book of books)for(const duration of ['half','one','two'] as Duration[])for(const mode of ['walking','driving','transit'] as Mode[])for(const limit of [3,9]){

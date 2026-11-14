@@ -16,7 +16,7 @@ try{
   await page.goto(base);await page.locator('.book-card').first().click();await page.getByLabel('出発地 必須').fill('松山駅');
   for(const duration of ['半日','1日','2日']){
    await page.getByRole('button',{name:duration,exact:true}).click();
-   if(duration==='2日'){await page.getByLabel('Day 1の最終目的地').fill('宿泊先');await page.getByLabel('Day 2の出発地（宿泊先）').fill('宿泊先');}
+   if(duration==='2日'){await page.getByLabel('宿泊先（任意）').fill('宿泊先');await page.getByLabel('Day 2の出発地（宿泊先）').fill('宿泊先');}
    await page.getByRole('button',{name:'旅程を作成する'}).click();
    const links=page.locator('.route-panel a');const expected=duration==='2日'||(mobile&&duration==='1日')?2:1;
    await expect(links).toHaveCount(expected);

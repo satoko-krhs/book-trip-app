@@ -9,3 +9,5 @@
 .photo-credits{width:100%;font-size:9px;color:#85928b}.photo-credits p{font-size:9px;margin:7px 0;overflow-wrap:anywhere}.photo-credits a{text-decoration:underline}
 .image-2 img{object-position:center 30%}
 @media(max-width:700px){.mobile-break{display:initial}}
+
+.trip-date-row{margin-top:20px}.departure-notice{margin:0 0 15px;padding-bottom:15px;border-bottom:1px solid #dbe3df}.departure-notice p{font-size:11px;margin:0 0 9px;color:var(--navy);overflow-wrap:anywhere}.departure-notice strong{font-weight:500}.departure-notice small{display:block;font-size:10px;color:var(--muted);line-height:1.9}.departure-notice .copy-message{font-size:10px;margin-top:9px}.departure-notice input{margin-top:7px}.route-panel .departure-notice{display:block}
