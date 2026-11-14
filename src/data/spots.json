@@ -1,0 +1,122 @@
+[
+  {
+    "id": "dogo-onsen",
+    "name": "道後温泉本館",
+    "address": "愛媛県松山市道後湯之町5-6",
+    "description": "歴史ある温泉街の中心。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 90
+  },
+  {
+    "id": "dogo-park",
+    "name": "道後公園",
+    "address": "愛媛県松山市道後公園",
+    "description": "道後の街並みと緑を楽しむ公園。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 45
+  },
+  {
+    "id": "matsuyama-castle",
+    "name": "松山城",
+    "address": "愛媛県松山市丸之内1",
+    "description": "松山の街を見渡す城。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 90
+  },
+  {
+    "id": "train-museum",
+    "name": "坊っちゃん列車ミュージアム",
+    "address": "愛媛県松山市湊町4丁目4-1",
+    "description": "鉄道の歴史を紹介する展示施設。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 30
+  },
+  {
+    "id": "kiyomizu",
+    "name": "清水寺",
+    "address": "京都府京都市東山区清水1丁目294",
+    "description": "東山の景色を楽しめる寺院。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 90
+  },
+  {
+    "id": "yasaka",
+    "name": "八坂神社",
+    "address": "京都府京都市東山区祇園町北側625",
+    "description": "祇園の街に隣接する神社。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 45
+  },
+  {
+    "id": "maruyama",
+    "name": "円山公園",
+    "address": "京都府京都市東山区円山町",
+    "description": "東山の緑に包まれた公園。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 45
+  },
+  {
+    "id": "heian",
+    "name": "平安神宮",
+    "address": "京都府京都市左京区岡崎西天王町97",
+    "description": "岡崎に広がる神社。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 60
+  },
+  {
+    "id": "yuigahama",
+    "name": "由比ヶ浜",
+    "address": "神奈川県鎌倉市由比ガ浜4丁目",
+    "description": "鎌倉の海辺を歩く候補地。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 60
+  },
+  {
+    "id": "tsurugaoka",
+    "name": "鶴岡八幡宮",
+    "address": "神奈川県鎌倉市雪ノ下2丁目1-31",
+    "description": "鎌倉の街の中心にある神社。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 60
+  },
+  {
+    "id": "hasedera",
+    "name": "長谷寺",
+    "address": "神奈川県鎌倉市長谷3丁目11-2",
+    "description": "長谷の高台にある寺院。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 60
+  },
+  {
+    "id": "kotokuin",
+    "name": "高徳院（鎌倉大仏）",
+    "address": "神奈川県鎌倉市長谷4丁目2-28",
+    "description": "鎌倉大仏で知られる寺院。",
+    "relationNote": "作品の旅行地域を巡る研修用の候補地です。作品への登場・直接の関連は未確認です。",
+    "sourceUrl": null,
+    "verificationStatus": "unverified",
+    "defaultStayMinutes": 45
+  }
+]

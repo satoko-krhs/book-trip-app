@@ -1,0 +1,101 @@
+[
+  {
+    "id": "botchan-0",
+    "bookId": "botchan",
+    "fromSpotId": "dogo-onsen",
+    "toSpotId": "dogo-park",
+    "travelMode": "transit",
+    "durationMinutes": null,
+    "checkedAt": null,
+    "sourceUrl": null,
+    "verificationStatus": "unverified"
+  },
+  {
+    "id": "botchan-1",
+    "bookId": "botchan",
+    "fromSpotId": "dogo-park",
+    "toSpotId": "matsuyama-castle",
+    "travelMode": "transit",
+    "durationMinutes": null,
+    "checkedAt": null,
+    "sourceUrl": null,
+    "verificationStatus": "unverified"
+  },
+  {
+    "id": "botchan-2",
+    "bookId": "botchan",
+    "fromSpotId": "matsuyama-castle",
+    "toSpotId": "train-museum",
+    "travelMode": "transit",
+    "durationMinutes": null,
+    "checkedAt": null,
+    "sourceUrl": null,
+    "verificationStatus": "unverified"
+  },
+  {
+    "id": "koto-0",
+    "bookId": "koto",
+    "fromSpotId": "kiyomizu",
+    "toSpotId": "yasaka",
+    "travelMode": "transit",
+    "durationMinutes": null,
+    "checkedAt": null,
+    "sourceUrl": null,
+    "verificationStatus": "unverified"
+  },
+  {
+    "id": "koto-1",
+    "bookId": "koto",
+    "fromSpotId": "yasaka",
+    "toSpotId": "maruyama",
+    "travelMode": "transit",
+    "durationMinutes": null,
+    "checkedAt": null,
+    "sourceUrl": null,
+    "verificationStatus": "unverified"
+  },
+  {
+    "id": "koto-2",
+    "bookId": "koto",
+    "fromSpotId": "maruyama",
+    "toSpotId": "heian",
+    "travelMode": "transit",
+    "durationMinutes": null,
+    "checkedAt": null,
+    "sourceUrl": null,
+    "verificationStatus": "unverified"
+  },
+  {
+    "id": "kokoro-0",
+    "bookId": "kokoro",
+    "fromSpotId": "yuigahama",
+    "toSpotId": "tsurugaoka",
+    "travelMode": "transit",
+    "durationMinutes": null,
+    "checkedAt": null,
+    "sourceUrl": null,
+    "verificationStatus": "unverified"
+  },
+  {
+    "id": "kokoro-1",
+    "bookId": "kokoro",
+    "fromSpotId": "tsurugaoka",
+    "toSpotId": "hasedera",
+    "travelMode": "transit",
+    "durationMinutes": null,
+    "checkedAt": null,
+    "sourceUrl": null,
+    "verificationStatus": "unverified"
+  },
+  {
+    "id": "kokoro-2",
+    "bookId": "kokoro",
+    "fromSpotId": "hasedera",
+    "toSpotId": "kotokuin",
+    "travelMode": "transit",
+    "durationMinutes": null,
+    "checkedAt": null,
+    "sourceUrl": null,
+    "verificationStatus": "unverified"
+  }
+]

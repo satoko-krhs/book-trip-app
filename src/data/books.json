@@ -1,0 +1,44 @@
+[
+  {
+    "id": "botchan",
+    "title": "坊っちゃん",
+    "author": "夏目漱石",
+    "area": "愛媛県松山市",
+    "description": "路面電車に揺られ、温泉と城のある街へ。",
+    "imageUrl": "/images/matsuyama.jpg",
+    "spotIds": [
+      "dogo-onsen",
+      "dogo-park",
+      "matsuyama-castle",
+      "train-museum"
+    ]
+  },
+  {
+    "id": "koto",
+    "title": "古都",
+    "author": "川端康成",
+    "area": "京都府京都市",
+    "description": "季節の彩りと、古都に流れる静かな時間。",
+    "imageUrl": "/images/kyoto.jpg",
+    "spotIds": [
+      "kiyomizu",
+      "yasaka",
+      "maruyama",
+      "heian"
+    ]
+  },
+  {
+    "id": "kokoro",
+    "title": "こころ",
+    "author": "夏目漱石",
+    "area": "神奈川県鎌倉市周辺",
+    "description": "海風を感じながら、鎌倉の街を歩く。",
+    "imageUrl": "/images/kamakura.jpg",
+    "spotIds": [
+      "yuigahama",
+      "tsurugaoka",
+      "hasedera",
+      "kotokuin"
+    ]
+  }
+]
