@@ -4,7 +4,7 @@
 
 ## Windows ARM64でNode.js・npmを使わず表示する
 
-ビルド済み配布版は [GitHub Releases](https://github.com/satoko-krhs/book-trip-app/releases) から取得してください。**BookTrip-Windows-Built-v0.2.1.zip** をダウンロードして「すべて展開」し、**BookTrip.html** をMicrosoft Edgeで開きます。ローカルサーバー、npm install、npm run devは不要です。
+ビルド済み配布版は [GitHub Releases](https://github.com/satoko-krhs/book-trip-app/releases) から取得してください。**BookTrip-Windows-Built-v0.3.0.zip** をダウンロードして「すべて展開」し、**BookTrip.html** をMicrosoft Edgeで開きます。ローカルサーバー、npm install、npm run devは不要です。
 
 画像・スタイル・React実行コード・初期データは単体HTMLに含まれています。詳細は [Windows配布版README](README-Windows.md) を参照してください。管理画面は単体HTML内のハッシュ経路を使い、通常のWeb版のURLは従来どおりです。
 
@@ -21,6 +21,7 @@ npm run test:standalone
 npm run test:routes
 npm run test:mvp
 npm run test:integration
+npm run test:a11y
 python scripts/package-windows.py
 ```
 
@@ -140,3 +141,13 @@ Google Maps URLsの仕様: https://developers.google.com/maps/documentation/urls
 旅程の各区間で「マスタ登録値」「手動設定値」「未入力」を区別し、作品違い、逆方向、交通手段違い、未確認、確認日不足、時間不足、区間なし、重複などの理由を表示します。保存データがない・読めない場合も通知し、黙って保存済みと扱いません。
 
 原因調査と保存形式の詳細は [移動時間マスタの調査記録](docs/travel-time-diagnosis.md) を参照してください。
+
+## v0.3.0 UI・アクセシビリティ
+
+利用者画面と管理ツールを白・ブルー・ティールの共通デザインに統一しました。本文は16pxを基本とする日本語のシステムフォントで、外部フォントの読込は不要です。「作品を選ぶ→日程・出発地を決める→旅程を確認・調整」の流れを表示し、管理画面の地点を住所付きカードで整理しています。
+
+必須ラベル、選択中のチェック、未保存状態、入力エラー、保存成功を文字でも表示します。エラー要約から入力欄へ移動でき、画面切り替え時は表示中の見出しへフォーカスします。本文へのスキップリンク、44pxを基本とした主要操作、フォーカス表示、ARIAラベル・ライブ領域、ハイコントラスト表示を整備しています。ヘッダー・フッターの戻る操作も既存の未保存確認へ委譲します。
+
+旅行データと保存形式、時刻計算・マスタ照合は変更していません。機能修正はコミット38174cd、UI改善は別コミットに分離しました。
+
+検証内容・未確認項目は [アクセシビリティ検証報告](docs/accessibility.md) を参照してください。自動検証に通過してもWCAG 2.2 AAの完全準拠を保証するものではありません。

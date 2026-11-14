@@ -9,13 +9,13 @@ if(standalone){const html=await fs.readFile('work/windows-release/BookTrip.html'
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),headless:true,args:['--no-sandbox']});
 const context=await browser.newContext({viewport:{width:1366,height:1000}});const page=await context.newPage();const errors=[],checks=[];page.on('pageerror',e=>errors.push(e.message));
 const check=name=>{checks.push(name);console.log('PASS',standalone?'standalone':'web',name);};
-const save=async()=>{await page.getByRole('button',{name:'ブラウザに保存'}).click();await expect(page.getByRole('status')).toContainText('保存しました');};
+const save=async()=>{await page.getByRole('button',{name:'ブラウザに保存'}).click();await expect(page.locator('.export-panel [role="status"]')).toContainText('保存しました');};
 const enterAdmin=async()=>{await page.getByRole('link',{name:'管理ツール',exact:true}).click();await page.getByRole('heading',{name:'移動時間マスタ登録ツール'}).waitFor();};
 const back=async()=>{await page.getByRole('link',{name:'BookTripに戻る',exact:true}).click();await page.getByRole('heading',{name:'『坊っちゃん』を巡る旅'}).waitFor();};
 const configure=async(row,minutes,status='verified')=>{await row.getByLabel('所要時間（分）').fill(String(minutes));await row.getByLabel('確認日').fill('2026-11-14');await row.getByLabel('確認状態').selectOption(status);};
 const queries=url=>{const p=new URL(url).searchParams;return [p.get('origin'),...(p.get('waypoints')?.split('|')??[]),p.get('destination')];};
 try{
- await page.goto(base);await page.locator('.book-card').first().click();await page.getByLabel('出発地 必須').fill('松山駅');await page.getByLabel('旅行日',{exact:true}).fill('2026-12-31');await page.getByRole('button',{name:'旅程を作成する'}).click();
+ await page.goto(base);await page.locator('.book-card').first().click();await page.getByLabel('出発地 必須').fill('松山駅');await page.getByLabel(/^旅行日(?:\s*必須)?$/).fill('2026-12-31');await page.getByRole('button',{name:'旅程を作成する'}).click();
  await page.locator('.minutes-label input').nth(2).fill('15');await page.evaluate(()=>window.booktripNavigationMarker='same document');
  await enterAdmin();assert.equal(await page.evaluate(()=>window.booktripNavigationMarker),'same document');
  await configure(page.locator('.admin-record').nth(0),12);await configure(page.locator('.admin-record').nth(2),77,'unverified');await page.getByRole('button',{name:'区間を追加'}).click();const added=page.locator('.admin-record').last();await added.getByLabel(/出発地点名/).fill('松山駅');await added.getByLabel(/到着地点/).first().selectOption('dogo-onsen');await configure(added,25);await save();
